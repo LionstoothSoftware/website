@@ -1,0 +1,39 @@
+{
+  "name": "lionstoothsoftware.com",
+  "version": "0.1.0",
+  "description": "Lionstooth Software website",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run bundle && npm run copy",
+    "bundle": "webpack --mode=production",
+    "copy": "node tools/copy-public-to-dist.js",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lionstooth"
+  ],
+  "author": "Eric Turner <eric@lionstoothsoftware.com> (https://github.com/LionstoothSoftware/)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@material/button": "^4.0.0",
+    "@material/ripple": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^4.2.0",
+    "fs-extra": "^8.1.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
