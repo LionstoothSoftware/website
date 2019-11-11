@@ -1,6 +1,124 @@
-@import "@material/button/mdc-button";
+// Color palette
+$base-color: #405450;
+$base-color-light: rgba(64, 84, 80, .8);
+$light-color: #f1f1f2;
 
-.foo-button {
-  @include mdc-button-ink-color(teal);
-  @include mdc-states(teal);
+// Minimum sizes for various breakpoints (follows Bootstrap 4 sizes)
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+$xl-min: 1200px;
+
+@import "@material/top-app-bar/mdc-top-app-bar";
+
+body {
+  margin: 0;
+  font-family: Roboto;
+  color: $base-color;
+}
+
+.lts-top-app-bar {
+  @include mdc-top-app-bar-ink-color($base-color);
+  @include mdc-top-app-bar-fill-color($light-color);
+
+  .lts-logo {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 0.5rem;
+
+    @media (min-width: $sm-min) {
+      font-size: 1.1rem;
+    }
+
+    @media (min-width: $md-min) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: $lg-min) {
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: $xl-min) {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.lts-hero {
+  display: flex;
+  flex-direction: row-reverse;
+
+  // Default for anything below $sm-min
+  height: 15rem;
+  padding: 1rem;
+  background-image: url("../../public/images/hero-background-500.jpg");
+
+  background-color: $base-color;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (min-width: $sm-min) {
+    height: 20rem;
+    padding: 2rem;
+    background-image: url("../../public/images/hero-background-750.jpg");
+  }
+
+  @media (min-width: $md-min) {
+    height: 25rem;
+    background-image: url("../../public/images/hero-background-1000.jpg");
+  }
+
+  @media (min-width: $lg-min) {
+    height: 30rem;
+    background-image: url("../../public/images/hero-background-1500.jpg");
+  }
+
+  @media (min-width: $xl-min) {
+    height: 35rem;
+  }
+
+  .lts-hero-text {
+    display: flex;
+    margin: 0;
+    margin-top: 64px; /* Height of the top nav */
+    padding-top: 1rem;
+    flex-basis: 66%;
+    align-items: center;
+    text-align: center;
+    color: $light-color;
+
+    // Default for anything below $sm-min
+    //font-size: 1rem;
+
+    @media (min-width: $sm-min) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: $md-min) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: $lg-min) {
+      font-size: 4rem;
+    }
+
+    @media (min-width: $xl-min) {
+      font-size: 5rem;
+    }
+
+  }
+}
+
+.lts-name-etymology {
+  width: 100%;
+  color: $base-color-light;
+  text-align: center;
+  font-size: 0.6rem;
+  font-style: italic;
+
+  @media (min-width: $sm-min) {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
 }

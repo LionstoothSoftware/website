@@ -1,2 +1,4 @@
-import {MDCRipple} from '@material/ripple/index';
-const ripple = new MDCRipple(document.querySelector('.foo-button'));
+import {MDCTopAppBar} from '@material/top-app-bar/index';
+
+const topAppBarElement = document.querySelector('.lts-top-app-bar');
+MDCTopAppBar.attachTo(topAppBarElement);

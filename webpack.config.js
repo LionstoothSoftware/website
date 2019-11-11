@@ -41,7 +41,11 @@ module.exports = {
                 query: {
                     presets: ['@babel/preset-env'],
                 },
-            }
+            },
+            {
+                test: /\.jpg$/,
+                loader: "file-loader"
+            },
         ],
     },
     devServer: {
