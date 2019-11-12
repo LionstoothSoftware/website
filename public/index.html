@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>Lionstooth Software, LLC</title>
+    <!--
+        Viewport meta sets the viewport width to the same as the device... browser assumes you've made
+        text readable on mobile, and the double-tap-to-zoom feature is dropped in favor of faster clicks
+    -->
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="bundle.css"/>
+    <link rel="stylesheet" href="fonts/line-awesome/css/line-awesome.min.css">
 </head>
 <body>
 
@@ -20,6 +26,112 @@
 
 <p class="lts-name-etymology">Dandelion, from French dent-de-lion, meaning lion's tooth</p>
 
+<ol class="lts-process-steps mdc-list">
+    <li class="lts-process-step-title lts-process-step-title--idea lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-lightbulb"></i></span>
+        <span class="mdc-list-item__text"><h2>Start with an idea</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--idea mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>Great ideas entertain, inspire, or solve problems in a unique way. Think of something
+            entirely new, or put your own twist on an existing idea to improve it or make it appeal
+            to a different audience.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--test lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-flask"></i></span>
+        <span class="mdc-list-item__text"><h2>Test the market</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--test mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>Don't waste months (or years!) developing an application or service
+            without knowing whether or not people will be interested in it.
+            Build a small prototype or a marketing page, show it to
+            people, and use the information you learn to make decisions about how
+            to proceed. You might find that your idea is a big hit, you might need
+            to alter your approach, or you might even decide that the idea is not worth pursuing.
+            Either way, you will be making more informed decisions.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--build lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-tools"></i></span>
+        <span class="mdc-list-item__text"><h2>Build a Minimum Viable Product (MVP)</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--build mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>When market testing indicates that your idea has some merit, build a
+            <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">Minimum Viable Product</a> with
+            just enough features to excite your potential customers. The goal is to deliver something
+            of value to them as quickly as possible, and to avoid wasting resources
+            building features that nobody wants.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--launch lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-rocket"></i></span>
+        <span class="mdc-list-item__text"><h2>Launch it</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--launch mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>Launch day is when you start seeking (hopefully) paying customers! Preparation
+            is important in this step because you only get one chance. Figure out where and when you will
+            promote your application to reach your target audience. Make sure  your application
+            will scale to handle the traffic. Gather as much information you can during launch about
+            who is using your application and how they are using it.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--grow lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-seedling"></i></span>
+        <span class="mdc-list-item__text"><h2>Grow it</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--grow mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>You will learn a lot from the first version. Use what you learn to improve your product
+        in ways that your customers will appreciate. Continue to engage online, and re-launch whenever
+        you make major updates available.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--monetize lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-money-bill-wave"></i></span>
+        <span class="mdc-list-item__text"><h2>Monetize it</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--monetize mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>Money is how most startups measure success. You need a strategy for your startup to earn
+        money, whether that's from advertising, sales, subscriptions, etc. Be creative about ways
+        to monetize your application or service.</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+
+    <li class="lts-process-step-title lts-process-step-title--automate lts-collapse mdc-list-item">
+        <span class="mdc-list-item__graphic"><i class="lts-icon las la-robot"></i></span>
+        <span class="mdc-list-item__text"><h2>Automate operations</h2></span>
+        <span class="mdc-list-item__meta" aria-hidden="true"><i class="lts-icon las la-angle-down"></i></span>
+    </li>
+    <li class="lts-process-step-description lts-process-step-description--automate mdc-list-item">
+        <span class="mdc-list-item__graphic"></span>
+        <p>You will not be able to keep turning ideas into startups if your time is consumed maintaining
+            your previous projects. Automate everything you can!</p>
+    </li>
+
+    <li role="separator" class="mdc-list-divider"></li>
+</ol>
 
 <script src="bundle.js" async></script>
 </body>

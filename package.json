@@ -5,9 +5,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "npm run bundle && npm run copy",
+    "clean": "node tools/clean-dist.js",
+    "build": "npm run clean && npm run bundle && node tools/copy-public-to-dist.js",
     "bundle": "webpack --mode=production",
-    "copy": "node tools/copy-public-to-dist.js",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +18,10 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@material/button": "^4.0.0",
+    "@material/list": "^4.0.0",
     "@material/ripple": "^4.0.0",
-    "@material/top-app-bar": "^4.0.0"
+    "@material/top-app-bar": "^4.0.0",
+    "jquery": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

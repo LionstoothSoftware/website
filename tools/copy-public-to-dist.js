@@ -4,6 +4,7 @@ const path = require('path');
 async function copy(src, dest) {
     await fs.ensureDir(dest);
     await fs.copy(src, dest);
+    await fs.chmod(dest, '0755');
 }
 
 const distDir = path.join(__dirname, '../dist');
