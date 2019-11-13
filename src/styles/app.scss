@@ -24,6 +24,7 @@ body {
   @include mdc-top-app-bar-fill-color($light-color);
 
   .lts-logo {
+    color: $base-color;
     font-weight: bold;
     padding-left: 0.5rem;
 
