@@ -11,13 +11,23 @@ $md-min: 768px;
 $lg-min: 992px;
 $xl-min: 1200px;
 
+@import url(https://fonts.googleapis.com/css?family=Raleway:200i,400|Lato:700,900&display=swap);
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/list/mdc-list";
 
+$heading-font: 'Lato', sans-serif;
+$copy-font: 'Raleway', serif;
+
 body {
+  font-family: $copy-font;
+  font-weight: normal;
   margin: 0;
-  font-family: Roboto;
   color: $base-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  font-weight: bold;
 }
 
 .lts-top-app-bar {
@@ -126,7 +136,7 @@ body {
   color: $base-color-light;
   text-align: center;
   font-size: 0.6rem;
-  font-style: italic;
+  //font-style: italic;
 
   @media (min-width: $sm-min) {
     font-size: 0.8rem;
