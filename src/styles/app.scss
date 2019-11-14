@@ -3,6 +3,7 @@ $base-color: #405450;
 $base-color-light: rgba(64, 84, 80, .8);
 $base-color-super-light: rgba(64, 84, 80, .2);
 $light-color: #f1f1f2;
+$light-color-super-light: rgba(241, 241, 242, .2);
 
 // Minimum sizes for various breakpoints (follows Bootstrap 4 sizes)
 $sm-min: 576px;
@@ -50,7 +51,7 @@ body {
 
   // Default for anything below $sm-min
   height: 15rem;
-  padding: 1rem;
+  padding-right: 0.5rem;
   background-image: url("../../public/images/hero-background-500.jpg");
 
   background-color: $base-color;
@@ -60,7 +61,7 @@ body {
 
   @media (min-width: $sm-min) {
     height: 20rem;
-    padding: 2rem;
+    padding-right: 0;
     background-image: url("../../public/images/hero-background-750.jpg");
   }
 
@@ -78,10 +79,24 @@ body {
     height: 35rem;
   }
 
+  .lts-hero-photo-credit {
+    display: flex;
+    flex-basis: 3%;
+    align-items: flex-end;
+
+    a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      color: $light-color-super-light;
+
+      &:hover {
+        color: $light-color;
+      }
+    }
+  }
+
   .lts-hero-text {
     display: flex;
-    margin: 0;
-    margin-top: 64px; /* Height of the top nav */
     padding-top: 1rem;
     flex-basis: 66%;
     align-items: center;
@@ -106,6 +121,7 @@ body {
 }
 
 .lts-name-etymology {
+  clear: both;
   width: 100%;
   color: $base-color-light;
   text-align: center;
