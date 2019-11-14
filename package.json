@@ -20,8 +20,7 @@
     "@material/button": "^4.0.0",
     "@material/list": "^4.0.0",
     "@material/ripple": "^4.0.0",
-    "@material/top-app-bar": "^4.0.0",
-    "jquery": "^3.4.1"
+    "@material/top-app-bar": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

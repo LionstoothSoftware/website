@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCList} from '@material/list/index';
 
@@ -8,34 +7,56 @@ MDCTopAppBar.attachTo(topAppBarElement);
 const processStepsElement = document.querySelector('.lts-process-steps');
 MDCList.attachTo(processStepsElement);
 
-function registerProcessStepInteractions(interactionEventType) {
-    // Clicking the title of the process step should change the expand/collapse icon and show/hide the description
-    // of the process step below the title.
+registerProcessStepTitleInteractions();
 
-    // TODO: Figure out how to animate the visual changes to make them more appealing
-
-    $('.lts-process-step-title').on(interactionEventType, function() {
-        const $this = $(this);
-
-        $this.toggleClass('lts-collapse');
-
-        // Modify the collapse/expand icon
-        if ($this.hasClass('lts-collapse')) {
-            $this.find('i').removeClass('la-angle-up').addClass('la-angle-down');
-        } else {
-            $this.find('i').removeClass('la-angle-down').addClass('la-angle-up');
-        }
-
-    });
+function registerProcessStepTitleInteractions() {
+    let eventType = 'click';
+    if (document.ontouchstart) {
+        eventType = 'touchstart';
+    }
+    const titles = document.querySelectorAll('.lts-process-step-title');
+    for (const title of titles) {
+        title.addEventListener(eventType, processTitleInteraction, false);
+    }
 }
 
-$(document).ready(function() {
-    // Touch devices often emit click events on release rather than on touch, so try to bind to
-    // the earliest event available.
-    let interactionEventType = 'click';
-    if (document.ontouchstart) {
-        interactionEventType = 'touchstart';
-    }
+function processTitleInteraction(ev) {
+    if (ev) {
+        // Find the title element that is a parent of the element that the user interacted with.
+        const title = ev.target.closest('.lts-process-step-title');
+        if (title) {
+            // Adding or removing the lts-collapse class controls whether or not the details of
+            // the process step is visible or not (through CSS).
+            title.classList.toggle('lts-collapse');
 
-    registerProcessStepInteractions(interactionEventType);
-});
+            updateAngleIcon(title);
+        } else {
+            console.error('No title element found');
+        }
+
+        // Prevent touch-enabled browsers from firing a mouse event 300ms after a touch event.
+        ev.preventDefault();
+    } else {
+        console.error('No interaction event')
+    }
+    return false;
+}
+
+function updateAngleIcon(title) {
+    if (title) {
+        const angleIcon = title.querySelector('.lts-angle-icon');
+        if (angleIcon) {
+            if (title.classList.contains('lts-collapse')) {
+                angleIcon.classList.remove('la-angle-up');
+                angleIcon.classList.add('la-angle-down');
+            } else {
+                angleIcon.classList.remove('la-angle-down');
+                angleIcon.classList.add('la-angle-up');
+            }
+        } else {
+            console.error('No angle icon element found');
+        }
+    } else {
+        console.error('No title element found');
+    }
+}
