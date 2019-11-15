@@ -15,14 +15,36 @@ $xl-min: 1200px;
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/list/mdc-list";
 
+$heading-font-size: 1.2rem;
+$heading-font-step: 0.2rem;
+
 $heading-font: 'Lato', sans-serif;
 $copy-font: 'Raleway', serif;
 
-body {
+@mixin increasingFontSize($startSize, $step) {
+  font-size: $startSize;
+
+  @media (min-width: $sm-min) {
+    font-size: $startSize + $step;
+  }
+
+  @media (min-width: $md-min) {
+    font-size: $startSize + $step*2;
+  }
+
+  @media (min-width: $lg-min) {
+    font-size: $startSize + $step*3;
+  }
+}
+
+body, p {
   font-family: $copy-font;
   font-weight: normal;
-  margin: 0;
   color: $base-color;
+}
+
+body {
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,22 +58,11 @@ h1, h2, h3, h4, h5, h6 {
 
   .lts-logo {
     color: $base-color;
+    font-family: $heading-font;
     font-weight: bold;
     padding-left: 0.5rem;
 
-    font-size: 0.8rem;
-
-    @media (min-width: $sm-min) {
-      font-size: 1rem;
-    }
-
-    @media (min-width: $md-min) {
-      font-size: 1.2rem;
-    }
-
-    @media (min-width: $lg-min) {
-      font-size: 1.4rem;
-    }
+    @include increasingFontSize($heading-font-size, $heading-font-step);
   }
 }
 
@@ -136,11 +147,9 @@ h1, h2, h3, h4, h5, h6 {
   color: $base-color-light;
   text-align: center;
   font-size: 0.6rem;
-  //font-style: italic;
 
   @media (min-width: $sm-min) {
     font-size: 0.8rem;
-    padding-top: 1rem;
   }
 }
 
@@ -149,20 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .lts-icon {
     color: $base-color;
-
-    font-size: 1rem;
-
-    @media (min-width: $sm-min) {
-      font-size: 1.2rem;
-    }
-
-    @media (min-width: $md-min) {
-      font-size: 1.4rem;
-    }
-
-    @media (min-width: $lg-min) {
-      font-size: 1.6rem;
-    }
+    @include increasingFontSize($heading-font-size, $heading-font-step);
   }
 
   .lts-process-step-title {
@@ -170,19 +166,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1rem;
 
     h2 {
-      font-size: 0.8rem;
-
-      @media (min-width: $sm-min) {
-        font-size: 1rem;
-      }
-
-      @media (min-width: $md-min) {
-        font-size: 1.2rem;
-      }
-
-      @media (min-width: $lg-min) {
-        font-size: 1.4rem;
-      }
+      @include increasingFontSize($heading-font-size, $heading-font-step);
     }
 
     // When the title is collapsed, hide the corresponding description.
