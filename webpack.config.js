@@ -1,11 +1,17 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['./src/styles/app.scss', './src/scripts/app.js'],
+    entry: ['./src/styles/app.scss', './src/scripts/app.js', './src/index.pug'],
     output: {
         filename: 'bundle.js',
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: `./src/index.pug`
+        }),
+    ],
     module: {
         rules: [
             {
@@ -45,6 +51,10 @@ module.exports = {
             {
                 test: /\.jpg$/,
                 loader: "file-loader"
+            },
+            {
+                test: /\.pug$/,
+                loader: "pug-loader"
             },
         ],
     },
