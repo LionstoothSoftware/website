@@ -1,87 +1,76 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title Lionstooth Software
-        link(rel="stylesheet" href="bundle.css")
-    body
-        header(class="lts-top-app-bar mdc-top-app-bar mdc-top-app-bar--fixed")
-            div(class="mdc-top-app-bar__row")
-                section(class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start")
-                    h1
-                        a(class="lts-logo mdc-top-app-bar__title" href="/") Lionstooth Software
+extends layout
 
-        section(class="lts-hero")
-            p(class="lts-hero-photo-credit")
-                a(href="https://unsplash.com/photos/YNM4KStg78I" target="_blank")
-                    i(class="las la-camera")
-            h1(class="lts-hero-text") We Turn Ideas into Businesses
+block content
+    section(class="lts-hero")
+        p(class="lts-hero-photo-credit")
+            a(href="https://unsplash.com/photos/YNM4KStg78I" target="_blank")
+                i(class="las la-camera")
+        h1(class="lts-hero-text") We Turn Ideas into Businesses
 
-        p(class="lts-name-etymology") Dandelion, from French dent-de-lion, meaning lion's tooth
+    p(class="lts-name-etymology") Dandelion, from French dent-de-lion, meaning lion's tooth
 
-        -
-            const steps = [{
-                iconClass: 'la-lightbulb',
-                title: 'Start with an idea',
-                description: 'Great ideas entertain, inspire, or solve problems in a unique way. Think of something ' +
-                    'entirely new, or put your own twist on an existing idea to improve it or make it appeal '+
-                    'to a different audience.',
-            }, {
-                iconClass: 'la-flask',
-                title: 'Test the market',
-                description: 'Don\'t waste months (or years!) developing an application or service ' +
-                    'without knowing whether or not people will be interested in it. ' +
-                    'Build a small prototype or a marketing page, show it to ' +
-                    'people, and use the information you learn to make decisions about how ' +
-                    'to proceed. You might find that your idea is a big hit, you might need ' +
-                    'to alter your approach, or you might even decide that the idea is not worth pursuing. ' +
-                    'Either way, you will be making more informed decisions.',
-            }, {
-                iconClass: 'la-tools',
-                title: 'Build a Minimum Viable Product (MVP)',
-                description: 'When market testing indicates that your idea has some merit, build '+
-                    '<a href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">Minimum Viable Product</a> with '+
-                    'just enough features to excite your potential customers. The goal is to deliver something '+
-                    'of value to them as quickly as possible, and to avoid wasting resources '+
-                    'building features that nobody wants.',
-            }, {
-                iconClass: 'la-rocket',
-                title: 'Launch it',
-                description: 'Launch day is when you start seeking (hopefully) paying customers! Preparation '+
-                    'is important in this step because you only get one chance. Figure out where and when you will '+
-                    'promote your application to reach your target audience. Make sure  your application '+
-                    'will scale to handle the traffic. Gather as much information you can during launch about '+
-                    'who is using your application and how they are using it.',
-            }, {
-                iconClass: 'la-seedling',
-                title: 'Grow it',
-                description: 'You will learn a lot from the first version. Use what you learn to improve your product '+
-                    'in ways that your customers will appreciate. Continue to engage online, and re-launch whenever '+
-                    'you make major updates available.',
-            }, {
-                iconClass: 'la-money-bill-wave',
-                title: 'Monetize it',
-                description: 'Money is how most startups measure success. You need a strategy for your startup to earn '+
-                    'money, whether that\'s from advertising, sales, subscriptions, etc. Be creative about ways '+
-                    'to monetize your application or service.',
-            }, {
-                iconClass: 'la-robot',
-                title: 'Automate operations',
-                description: 'You will not be able to keep turning ideas into startups if your time is consumed maintaining '+
-                    'your previous projects. Automate everything you can!',
-            }];
+    -
+        const steps = [{
+            iconClass: 'la-lightbulb',
+            title: 'Start with an idea',
+            description: 'Great ideas entertain, inspire, or solve problems in a unique way. Think of something ' +
+                'entirely new, or put your own twist on an existing idea to improve it or make it appeal '+
+                'to a different audience.',
+        }, {
+            iconClass: 'la-flask',
+            title: 'Test the market',
+            description: 'Don\'t waste months (or years!) developing an application or service ' +
+                'without knowing whether or not people will be interested in it. ' +
+                'Build a landing page or a small prototype, show it to ' +
+                'people, and use the information you learn to make decisions about how ' +
+                'to proceed. You might find that your idea is a big hit, you might need ' +
+                'to alter your approach, or you might even decide that the idea is not worth pursuing. ' +
+                'Either way, you will be making more informed decisions.',
+        }, {
+            iconClass: 'la-tools',
+            title: 'Build a Minimum Viable Product (MVP)',
+            description: 'When market testing indicates that your idea has some merit, build '+
+                '<a href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">Minimum Viable Product</a> with '+
+                'just enough features to excite your potential customers. The goal is to deliver something '+
+                'of value to them as quickly as possible, and to avoid wasting resources '+
+                'building features that nobody wants.',
+        }, {
+            iconClass: 'la-rocket',
+            title: 'Launch it',
+            description: 'Launch day is when you start seeking (hopefully) paying customers! Preparation '+
+                'is important in this step because you only get one chance. Figure out where and when you will '+
+                'promote your application to reach your target audience. Make sure  your application '+
+                'will scale to handle the traffic. Gather as much information you can during launch about '+
+                'who is using your application and how they are using it.',
+        }, {
+            iconClass: 'la-seedling',
+            title: 'Grow it',
+            description: 'You will learn a lot from the first version. Use what you learn to improve your product '+
+                'in ways that your customers will appreciate. Continue to engage online, and re-launch whenever '+
+                'you make major updates available.',
+        }, {
+            iconClass: 'la-money-bill-wave',
+            title: 'Monetize it',
+            description: 'Money is how most startups measure success. You need a strategy for your startup to earn '+
+                'money, whether that\'s from advertising, sales, subscriptions, etc. Be creative about ways '+
+                'to monetize your application or service.',
+        }, {
+            iconClass: 'la-robot',
+            title: 'Automate operations',
+            description: 'You will not be able to keep turning ideas into startups if your time is consumed maintaining '+
+                'your previous projects. Automate everything you can!',
+        }];
 
-        ol(class='lts-process-steps mdc-list')
-            each step in steps
-                li(class='lts-process-step-title lts-collapse mdc-list-item')
-                    span(class='mdc-list-item__graphic')
-                        i(class='lts-icon las ' + step.iconClass)
-                    span(class='mdc-list-item__text')
-                        h2= step.title
-                    span(class='mdc-list-item__meta' aria-hidden='true')
-                        i(class='lts-icon lts-angle-icon las la-angle-down')
-                li(class='lts-process-step-description mdc-list-item')
-                    span(class='mdc-list-item__graphic')
-                    p  !{step.description}
-                li(role="separator" class="mdc-list-divider")
+    ol(class='lts-process-steps mdc-list')
+        each step in steps
+            li(class='lts-process-step-title lts-collapse mdc-list-item')
+                span(class='mdc-list-item__graphic')
+                    i(class='lts-icon las ' + step.iconClass)
+                span(class='mdc-list-item__text')
+                    h2= step.title
+                span(class='mdc-list-item__meta' aria-hidden='true')
+                    i(class='lts-icon lts-angle-icon las la-angle-down')
+            li(class='lts-process-step-description mdc-list-item')
+                span(class='mdc-list-item__graphic')
+                p  !{step.description}
+            li(role="separator" class="mdc-list-divider")

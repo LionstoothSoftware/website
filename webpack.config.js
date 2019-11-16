@@ -2,16 +2,17 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const htmlWebpackPlugins = [
+    {template: './src/index.pug', filename: 'index.html'},
+    {template: './src/contact.pug', filename: 'contact.html'},
+].map(plugin => new HtmlWebpackPlugin(plugin));
+
 module.exports = {
     entry: [
         './src/styles/app.scss',
         './src/scripts/app.js',
         './src/fonts/line-awesome/css/line-awesome.min.css'],
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: `./src/index.pug`
-        }),
-    ],
+    plugins: htmlWebpackPlugins,
     module: {
         rules: [
             {
