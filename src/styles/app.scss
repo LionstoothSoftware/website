@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
   // Default for anything below $sm-min
   height: 15rem;
   padding-right: 0.5rem;
-  background-image: url("../../public/images/hero-background-500.jpg");
+  background-image: url("../images/hero-background-500.jpg");
 
   background-color: $base-color;
   background-position: left;
@@ -91,17 +91,17 @@ h1, h2, h3, h4, h5, h6 {
   @media (min-width: $sm-min) {
     height: 20rem;
     padding-right: 0;
-    background-image: url("../../public/images/hero-background-750.jpg");
+    background-image: url("../images/hero-background-750.jpg");
   }
 
   @media (min-width: $md-min) {
     height: 25rem;
-    background-image: url("../../public/images/hero-background-1000.jpg");
+    background-image: url("../images/hero-background-1000.jpg");
   }
 
   @media (min-width: $lg-min) {
     height: 30rem;
-    background-image: url("../../public/images/hero-background-1500.jpg");
+    background-image: url("../images/hero-background-1500.jpg");
   }
 
   @media (min-width: $xl-min) {
