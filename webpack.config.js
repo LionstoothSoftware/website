@@ -3,10 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['./src/styles/app.scss', './src/scripts/app.js', './src/index.pug'],
-    output: {
-        filename: 'bundle.js',
-    },
+    entry: ['./src/styles/app.scss', './src/scripts/app.js', './src/fonts/line-awesome/css/line-awesome.css'],
     plugins: [
         new HtmlWebpackPlugin({
             template: `./src/index.pug`
@@ -14,6 +11,32 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                ],
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['@babel/preset-env'],
+                },
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    'file-loader',
+                ]
+            },
             {
                 test: /\.scss$/,
                 use: [
@@ -42,19 +65,10 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['@babel/preset-env'],
-                },
-            },
-            {
-                test: /\.jpg$/,
-                loader: "file-loader"
-            },
-            {
                 test: /\.pug$/,
-                loader: "pug-loader"
+                use: [
+                    'pug-loader'
+                ]
             },
         ],
     },

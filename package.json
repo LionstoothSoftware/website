@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "description": "Lionstooth Software website",
   "private": true,
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "clean": "node tools/clean-dist.js",
-    "build": "npm run clean && npm run bundle",
-    "build:dev": "npm run clean && npm run bundle:dev",
+    "build": "npm run clean && npm run bundle && node tools/copy-public-to-dist.js",
+    "build:dev": "npm run clean && npm run bundle:dev && node tools/copy-public-to-dist.js",
     "bundle": "webpack --mode=production",
     "bundle:dev": "webpack --mode=development",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode=production",
     "start:dev": "webpack-dev-server --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,9 +20,7 @@
   "author": "Eric Turner <eric@lionstoothsoftware.com> (https://github.com/LionstoothSoftware/)",
   "license": "UNLICENSED",
   "dependencies": {
-    "@material/button": "^4.0.0",
     "@material/list": "^4.0.0",
-    "@material/ripple": "^4.0.0",
     "@material/top-app-bar": "^4.0.0"
   },
   "devDependencies": {
@@ -40,6 +38,7 @@
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"

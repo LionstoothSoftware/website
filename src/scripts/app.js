@@ -7,19 +7,19 @@ MDCTopAppBar.attachTo(topAppBarElement);
 const processStepsElement = document.querySelector('.lts-process-steps');
 MDCList.attachTo(processStepsElement);
 
-registerProcessStepTitleInteractions();
+registerListTitleInteractions();
 
 /**
  * Registers an event handler on the titles of each of the steps of the startup-creation process.
  */
-function registerProcessStepTitleInteractions() {
+function registerListTitleInteractions() {
     let eventType = 'click';
     if (document.ontouchstart) {
         eventType = 'touchstart';
     }
     const titles = document.querySelectorAll('.lts-process-step-title');
     for (const title of titles) {
-        title.addEventListener(eventType, handleProcessTitleInteraction, false);
+        title.addEventListener(eventType, handleListTitleInteraction, false);
     }
 }
 
@@ -28,7 +28,7 @@ function registerProcessStepTitleInteractions() {
  * @param ev
  * @returns {boolean}
  */
-function handleProcessTitleInteraction(ev) {
+function handleListTitleInteraction(ev) {
     if (ev) {
         // Find the title element that is a parent of the element that the user interacted with.
         const title = ev.target.closest('.lts-process-step-title');
@@ -37,7 +37,7 @@ function handleProcessTitleInteraction(ev) {
             // the process step is visible or not (through CSS).
             title.classList.toggle('lts-collapse');
 
-            updateAngleIcon(title);
+            updateListTitleExpandCollapseIcon(title);
         } else {
             console.error('No title element found');
         }
@@ -53,13 +53,14 @@ function handleProcessTitleInteraction(ev) {
 /**
  * Make the angle icon point up or down depending on whether the details of a step in the startup-process is
  * collapsed or not.
- * @param title
+ *
+ * @param titleElement
  */
-function updateAngleIcon(title) {
-    if (title) {
-        const angleIcon = title.querySelector('.lts-angle-icon');
+function updateListTitleExpandCollapseIcon(titleElement) {
+    if (titleElement) {
+        const angleIcon = titleElement.querySelector('.lts-angle-icon');
         if (angleIcon) {
-            if (title.classList.contains('lts-collapse')) {
+            if (titleElement.classList.contains('lts-collapse')) {
                 angleIcon.classList.remove('la-angle-up');
                 angleIcon.classList.add('la-angle-down');
             } else {
