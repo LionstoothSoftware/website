@@ -3,7 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['./src/styles/app.scss', './src/scripts/app.js', './src/fonts/line-awesome/css/line-awesome.css'],
+    entry: [
+        './src/styles/app.scss',
+        './src/scripts/app.js',
+        './src/fonts/line-awesome/css/line-awesome.min.css'],
     plugins: [
         new HtmlWebpackPlugin({
             template: `./src/index.pug`
@@ -67,7 +70,9 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: [
-                    'pug-loader'
+                    {
+                        loader: 'pug-loader',
+                    }
                 ]
             },
         ],

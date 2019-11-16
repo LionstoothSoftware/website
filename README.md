@@ -1,7 +1,13 @@
-## Lionstooth Software Website
+# Lionstooth Software Website
 
 The Lionstooth Software's website is a fairly simple static website that uses
-[Material Components](https://github.com/material-components).
+
+- Webpack for building the website
+- Babel for transpiling the latest ECMAScript (javascript) into code that browsers support
+- SASS for better stylesheet management
+- Pug for generating HTML from templates
+- [Material Components](https://github.com/material-components) for UI (User Interface) components
+- Line Awesome for icons
 
 ## Prerequisites
 
@@ -9,19 +15,30 @@ Before you continue, ensure you meet the following requirements:
 
 * You have installed the latest version of Node.js
 
-# Develop
+## Developing
 
 Install dependencies using `npm install`.
 
 Run the locally by using `npm start` and opening http://localhost:8080 in your browser.
 
-Changes to files under the `src/` directory will trigger webpack to rebuild them and reload them in
+Changes to files under the `src/` directory will automatically trigger webpack to rebuild them and reload them in
 your browser.
 
-# Build
+## Building
 
 Run `npm run build` to build the static site in the `dist/` directory for deployment.
 
-# Contact
+## Extending
+
+Add more pages by creating new Pug files under `./src` (e.g. `./src/contact.pug`) and adding a new HtmlWebpackPlugin
+to the plugins array in webpack.config.js.
+
+If you need to support any new types of assets, you'll need to add them somewhere under `./src`, and
+update the webpack configuration to be able to load them. (This may require installing additional Node.js modules).
+
+If the new asset cannot be managed by webpack, then just add them to the `./public` directory. Webpack won't
+automatically reload them when they change, but refreshing your browser will allow you to see the change.
+
+## Contact
 
 If you have any questions please contact eric@lionstoothsoftware.com.
