@@ -8,6 +8,7 @@ The Lionstooth Software's website is a fairly simple static website that uses
 - Pug for generating HTML from templates
 - [Material Components](https://github.com/material-components) for UI (User Interface) components
 - Line Awesome for icons
+- Animation.css for CSS animations
 
 ## Prerequisites
 
