@@ -8,6 +8,7 @@ const processStepsElement = document.querySelector('.lts-process-steps');
 MDCList.attachTo(processStepsElement);
 
 registerListTitleInteractions();
+registerAnimations();
 
 /**
  * Registers an event handler on the titles of each of the steps of the startup-creation process.
@@ -72,5 +73,43 @@ function updateListTitleExpandCollapseIcon(titleElement) {
         }
     } else {
         console.error('No title element found');
+    }
+}
+
+/**
+ * Sets up events for animation.
+ */
+function registerAnimations() {
+    const stepIcons = document.querySelectorAll('.lts-icon--step');
+    if (stepIcons) {
+        for (const stepIcon of stepIcons) {
+            stepIcon.addEventListener('mouseover', triggerAnimation, false);
+        }
+    } else {
+        console.error('No elements were found to animate');
+    }
+}
+
+function triggerAnimation(ev) {
+    if (ev) {
+        animateCSS(ev.target, 'flip');
+    } else {
+        console.error('No animation event to handle')
+    }
+}
+
+function animateCSS(node, animationName, callback) {
+    if (node) {
+        node.classList.add('animated', animationName);
+
+        function handleAnimationEnd() {
+            node.classList.remove('animated', animationName);
+            node.removeEventListener('animationend', handleAnimationEnd);
+            if (typeof callback === 'function') callback()
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd);
+    } else {
+        console.error('No element to animate')
     }
 }

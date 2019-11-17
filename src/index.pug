@@ -65,7 +65,7 @@ block content
         each step in steps
             li(class='lts-process-step-title lts-collapse mdc-list-item')
                 span(class='mdc-list-item__graphic')
-                    i(class='lts-icon las ' + step.iconClass)
+                    i(class=`lts-icon lts-icon--step las ${step.iconClass}`)
                 span(class='mdc-list-item__text')
                     h2= step.title
                 span(class='mdc-list-item__meta' aria-hidden='true')
