@@ -7,33 +7,45 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [12.x]
     steps:
-    - name: Check out code
-      uses: actions/checkout@v1
-    - name: Use node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Build
-      run: |
-        npm ci
-        npm run build --if-present
-      env:
-        CI: true
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: Use node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Build
+        run: |
+          npm ci
+          npm run build --if-present
+        env:
+          CI: true
+      - name: Upload dist
+        uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: dist
   deploy:
+    name: Deploy
+    needs: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'
-        SOURCE_DIR: 'dist'
+      - name: Download dist
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+      - name: Deploy
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
+          SOURCE_DIR: 'dist'
