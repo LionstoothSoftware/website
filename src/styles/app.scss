@@ -5,7 +5,7 @@
 // We should look at a better CSS reset
 body {
   margin: 0;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 // Color palette
@@ -23,11 +23,11 @@ $lg-min: 992px;
 $xl-min: 1200px;
 
 $heading-font: 'Lato', sans-serif;
-$heading-font-size: 1.2rem;
+$heading-font-size: 1.6rem;
 $heading-font-step: 0.1rem;
 
 $copy-font: 'Roboto', serif;
-$copy-font-size: 1.6rem;
+$copy-font-size: 1.4rem;
 $copy-font-step: 0.1rem;
 
 @mixin increasingFontSize($startSize, $step) {
@@ -121,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 
     a {
       text-decoration: none;
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       color: $light-color-super-faint;
 
       &:hover {
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
   color: $base-color-faint;
   text-align: center;
 
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .lts-process-steps {
