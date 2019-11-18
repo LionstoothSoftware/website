@@ -8,11 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
     - name: Check out code
       uses: actions/checkout@v1
@@ -26,6 +24,9 @@ jobs:
         npm run build --if-present
       env:
         CI: true
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy
       uses: jakejarvis/s3-sync-action@master
       with:
