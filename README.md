@@ -10,6 +10,15 @@ The Lionstooth Software's website is a fairly simple static website that uses
 - Line Awesome for icons
 - Animation.css for CSS animations
 
+Webpack server is used to run locally on port 8080 during development to get hot reloading in the browser.
+
+The website is deployed to an AWS S3 bucket and distributed to an AWS CloudFront CDN. The TLS certificate was created in the
+AWS Certificate Manager.
+
+Github Actions are used to automatically build and deploy the website to AWS whenever a push is made to the `deploy` branch.
+
+The domain name and email address are managed through Namecheap.
+
 ## Prerequisites
 
 Before you continue, ensure you meet the following requirements:
