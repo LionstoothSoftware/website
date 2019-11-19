@@ -100,8 +100,8 @@ function triggerAnimation(ev) {
 
 function animateCSS(node, animationName, callback) {
     if (node) {
-        node.classList.add('animated', animationName);
-
+        // I want the animation to happen once each time, so when the animation ends remove the animated class
+        // from the element.
         function handleAnimationEnd() {
             node.classList.remove('animated', animationName);
             node.removeEventListener('animationend', handleAnimationEnd);
@@ -109,6 +109,7 @@ function animateCSS(node, animationName, callback) {
         }
 
         node.addEventListener('animationend', handleAnimationEnd);
+        node.classList.add('animated', animationName);
     } else {
         console.error('No element to animate')
     }
