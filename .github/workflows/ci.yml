@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
+        with:
+          ref: deploy
       - name: Use node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
