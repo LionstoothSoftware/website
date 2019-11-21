@@ -11,7 +11,8 @@ body {
 // Color palette
 $base-color: #405450;
 $base-color-faint: rgba(64, 84, 80, .8);
-$base-color-super-faint: rgba(64, 84, 80, .2);
+$base-color-very-faint: rgba(64, 84, 80, .6);
+$base-color-super-faint: rgba(64, 84, 80, .4);
 $light-color: #f1f1f2;
 $light-color-faint: rgba(64, 84, 80, .8);
 $light-color-super-faint: rgba(241, 241, 242, .2);
@@ -144,17 +145,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lts-name-etymology {
-  clear: both;
+  padding: 0;
   width: 100%;
-  color: $base-color-faint;
+  color: $base-color-very-faint;
   text-align: center;
-
   font-size: 0.8rem;
-}
-
-.lts-process-description {
-  padding: 0 1rem 0 1rem;
-  font-size: $copy-font-size;
 }
 
 .lts-process-steps {
