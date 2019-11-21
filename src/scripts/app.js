@@ -14,13 +14,17 @@ registerAnimations();
  * Registers an event handler on the titles of each of the steps of the startup-creation process.
  */
 function registerListTitleInteractions() {
-   let eventType = 'click';
-   if (document.ontouchstart) {
-      eventType = 'touchstart';
-   }
-   const titles = document.querySelectorAll('.lts-process-step-title');
-   for (const title of titles) {
-      title.addEventListener(eventType, handleListTitleInteraction, false);
+   if (document) {
+      let eventType = 'click';
+      if (document.ontouchstart) {
+         eventType = 'touchstart';
+      }
+      const titles = document.querySelectorAll('.lts-process-step-title');
+      for (const title of titles) {
+         title.addEventListener(eventType, handleListTitleInteraction, false);
+      }
+   } else {
+      console.error('Document not found. Is this a browser?');
    }
 }
 
@@ -80,13 +84,17 @@ function updateListTitleExpandCollapseIcon(titleElement) {
  * Sets up events for animation.
  */
 function registerAnimations() {
-   const stepIcons = document.querySelectorAll('.lts-icon--step');
-   if (stepIcons) {
-      for (const stepIcon of stepIcons) {
-         stepIcon.addEventListener('mouseover', triggerAnimation, false);
+   if (document) {
+      const stepIcons = document.querySelectorAll('.lts-icon--step');
+      if (stepIcons) {
+         for (const stepIcon of stepIcons) {
+            stepIcon.addEventListener('mouseover', triggerAnimation, false);
+         }
+      } else {
+         console.error('No elements were found to animate');
       }
    } else {
-      console.error('No elements were found to animate');
+      console.error('Document not found. Is this a browser?');
    }
 }
 
