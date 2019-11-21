@@ -5,13 +5,9 @@
   "private": true,
   "main": "app.js",
   "scripts": {
+    "build": "webpack --config webpack.prod.js",
     "clean": "node tools/clean-dist.js",
-    "build": "npm run clean && npm run bundle && node tools/copy-public-to-dist.js",
-    "build:dev": "npm run clean && npm run bundle:dev && node tools/copy-public-to-dist.js",
-    "bundle": "webpack --mode=production",
-    "bundle:dev": "webpack --mode=development",
-    "start": "webpack-dev-server --mode=production",
-    "start:dev": "webpack-dev-server --mode=development",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -28,6 +24,7 @@
     "@babel/preset-env": "^7.7.1",
     "autoprefixer": "^9.7.1",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.7.0",
@@ -45,6 +42,7 @@
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   }
 }

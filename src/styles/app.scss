@@ -27,7 +27,7 @@ $heading-font-size: 1.6rem;
 $heading-font-step: 0.1rem;
 
 $copy-font: 'Roboto', serif;
-$copy-font-size: 1.4rem;
+$copy-font-size: 1.2rem;
 $copy-font-step: 0.1rem;
 
 @mixin increasingFontSize($startSize, $step) {
@@ -54,12 +54,12 @@ body, p {
   font-family: $copy-font;
   font-weight: normal;
   color: $base-color;
-  font-size: 1.4rem;
+  font-size: $copy-font-size;
 }
 
 p {
   line-height: 1.8rem;
-  padding: 1.6rem;
+  padding: 0 1.2rem 0 1.4rem;
 }
 
 
@@ -77,8 +77,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $heading-font;
     font-weight: bold;
     padding-left: 0.5rem;
-
-    @include increasingFontSize($heading-font-size, $heading-font-step);
+    font-size: $heading-font-size;
   }
 }
 
@@ -154,9 +153,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lts-process-description {
-  text-align: center;
   padding: 0 1rem 0 1rem;
-  @include increasingFontSize(1.4rem, 0);
+  font-size: $copy-font-size;
 }
 
 .lts-process-steps {
@@ -172,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1rem;
 
     h2 {
-      @include increasingFontSize($heading-font-size, $heading-font-step);
+      font-size: $heading-font-size;
     }
 
     // When the title is collapsed, hide the corresponding description.
@@ -186,6 +184,7 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
 
     p {
+      font-size: $copy-font-size;
       padding: 0;
     }
   }

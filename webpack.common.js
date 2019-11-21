@@ -1,11 +1,7 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const htmlWebpackPlugins = [
-   { template: './src/index.pug', filename: 'index.html' },
-   { template: './src/contact.pug', filename: 'contact.html' },
-].map(plugin => new HtmlWebpackPlugin(plugin));
 
 module.exports = {
    entry: [
@@ -14,7 +10,20 @@ module.exports = {
       './src/scripts/app.js',
       './src/fonts/line-awesome/css/line-awesome.min.css',
    ],
-   plugins: htmlWebpackPlugins,
+   output: {
+      path: path.join(__dirname, 'dist'),
+   },
+   plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+         template: './src/index.pug',
+         filename: 'index.html',
+      }),
+      new HtmlWebpackPlugin({
+         template: './src/contact.pug',
+         filename: 'contact.html',
+      }),
+   ],
    module: {
       rules: [
          {
@@ -72,8 +81,5 @@ module.exports = {
             ],
          },
       ],
-   },
-   devServer: {
-      contentBase: path.join(__dirname, 'public'),
    },
 };
