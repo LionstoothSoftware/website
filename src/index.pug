@@ -1,7 +1,24 @@
 extends layout
 
+block descriptionMeta
+    meta(name='description' content='I develop applications and services to turn my ideas into viable businesses')
+
+block structuredData
+    script(type='application/ld+json').
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://lionstoothsoftware.com",
+            "name": "Lionstooth Softare",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "eric@lionstoothsoftware.com",
+                "contactType": "Customer service"
+            }
+        }
+
 block content
-    section(class="lts-hero")
+    section(class="lts-hero" title="Dandelion seeds blowing away in the wind")
         p(class="lts-hero__photo-credit")
             a(href="https://unsplash.com/photos/YNM4KStg78I" target="_blank")
                 i(class="las la-camera")
