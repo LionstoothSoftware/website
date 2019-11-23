@@ -4,8 +4,8 @@ import { MDCList } from '@material/list/index';
 const topAppBarElement = document.querySelector('.lts-top-app-bar');
 MDCTopAppBar.attachTo(topAppBarElement);
 
-const processStepsElement = document.querySelector('.lts-process-steps');
-MDCList.attachTo(processStepsElement);
+const processElement = document.querySelector('.lts-process');
+MDCList.attachTo(processElement);
 
 registerListTitleInteractions();
 registerAnimations();
@@ -19,7 +19,7 @@ function registerListTitleInteractions() {
       if (document.ontouchstart) {
          eventType = 'touchstart';
       }
-      const titles = document.querySelectorAll('.lts-process-step-title');
+      const titles = document.querySelectorAll('.lts-process__title');
       for (const title of titles) {
          title.addEventListener(eventType, handleListTitleInteraction, false);
       }
@@ -36,7 +36,7 @@ function registerListTitleInteractions() {
 function handleListTitleInteraction(ev) {
    if (ev) {
       // Find the title element that is a parent of the element that the user interacted with.
-      const title = ev.target.closest('.lts-process-step-title');
+      const title = ev.target.closest('.lts-process__title');
       if (title) {
          // Adding or removing the lts-collapse class controls whether or not the details of
          // the process step is visible or not (through CSS).
@@ -85,7 +85,9 @@ function updateListTitleExpandCollapseIcon(titleElement) {
  */
 function registerAnimations() {
    if (document) {
-      const stepIcons = document.querySelectorAll('.lts-icon--step');
+      const stepIcons = document.querySelectorAll(
+         '.lts-process__title .lts-icon'
+      );
       if (stepIcons) {
          for (const stepIcon of stepIcons) {
             stepIcon.addEventListener('mouseover', triggerAnimation, false);

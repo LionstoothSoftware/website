@@ -2,17 +2,17 @@ extends layout
 
 block content
     section(class="lts-hero")
-        p(class="lts-hero-photo-credit")
+        p(class="lts-hero__photo-credit")
             a(href="https://unsplash.com/photos/YNM4KStg78I" target="_blank")
                 i(class="las la-camera")
-        h1(class="lts-hero-text") Turning Ideas into Businesses
+        h1(class="lts-hero__text") Turning Ideas into Businesses
 
     p(class="lts-name-etymology") Dandelion, from French dent-de-lion, meaning lion's tooth
 
     p.
         Hi, I'm Eric. I recently started Lionstooth Software because I want to create
         applications and services that meet peoples' needs in unique and creative ways. I left my
-        comfortable corporate career as a Software Developer to pursue my dreams as a bootstrapping
+        comfortable corporate career as a Software Developer to become a bootstrapping
         entrepreneur.
     p.
         A lot has been written about bootstrapping businesses, but the essence is to start them on
@@ -72,16 +72,16 @@ block content
                 'your previous projects. Automate everything you can!',
         }];
 
-    ol(class='lts-process-steps mdc-list')
+    ol(class='lts-process mdc-list')
         each step in steps
-            li(class='lts-process-step-title lts-collapse mdc-list-item')
+            li(class='lts-process__title lts-collapse mdc-list-item')
                 span(class='mdc-list-item__graphic')
-                    i(class=`lts-icon lts-icon--step las ${step.iconClass}`)
+                    i(class=`lts-icon las ${step.iconClass}`)
                 span(class='mdc-list-item__text')
                     h2= step.title
                 span(class='mdc-list-item__meta' aria-hidden='true')
                     i(class='lts-icon lts-angle-icon las la-angle-down')
-            li(class='lts-process-step-description mdc-list-item animated fadeIn')
+            li(class='lts-process__description mdc-list-item animated fadeIn')
                 span(class='mdc-list-item__graphic')
                 p  !{step.description}
-            li(role="separator" class="mdc-list-divider")
+            li(role="separator" class="lts-list-divider mdc-list-divider")

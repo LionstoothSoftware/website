@@ -17,7 +17,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@material/list": "^4.0.0",
-    "@material/top-app-bar": "^4.0.0"
+    "@material/top-app-bar": "^4.0.0",
+    "normalize.css": "^8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

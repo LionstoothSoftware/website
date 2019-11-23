@@ -1,12 +1,7 @@
+@import "normalize.css/normalize";
 @import url(https://fonts.googleapis.com/css?family=Roboto|Lato:700,900&display=swap);
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/list/mdc-list";
-
-// We should look at a better CSS reset
-body {
-  margin: 0;
-  font-size: 10px;
-}
 
 // Color palette
 $base-color: #405450;
@@ -116,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 35rem;
   }
 
-  .lts-hero-photo-credit {
+  &__photo-credit {
     display: flex;
     flex-basis: 3%;
     align-items: flex-end;
@@ -132,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
-  .lts-hero-text {
+  &__text {
     display: flex;
     padding-top: 1rem;
     flex-basis: 66%;
@@ -152,15 +147,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
 }
 
-.lts-process-steps {
+.lts-icon {
+  color: $base-color;
+}
+
+.lts-process {
   color: $base-color;
 
   .lts-icon {
-    color: $base-color;
     @include increasingFontSize($heading-font-size, $heading-font-step);
   }
 
-  .lts-process-step-title {
+  &__title {
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -169,12 +167,12 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     // When the title is collapsed, hide the corresponding description.
-    &.lts-collapse + .lts-process-step-description {
+    &.lts-collapse + .lts-process__description {
       display: none;
     }
   }
 
-  .lts-process-step-description {
+  &__description {
     padding-bottom: 1rem;
     height: auto;
 
@@ -183,8 +181,8 @@ h1, h2, h3, h4, h5, h6 {
       padding: 0;
     }
   }
+}
 
-  .mdc-list-divider {
-    border-bottom-color: $base-color-super-faint;
-  }
+.lts-list-divider {
+  border-bottom-color: $base-color-super-faint;
 }
