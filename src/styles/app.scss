@@ -1,7 +1,9 @@
 @import "normalize.css/normalize";
 @import url(https://fonts.googleapis.com/css?family=Roboto|Lato:700,900&display=swap);
+@import "animate.min.css";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/list/mdc-list";
+@import "../fonts/line-awesome/css/line-awesome.min.css";
 
 // Color palette
 $base-color: #405450;

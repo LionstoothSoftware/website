@@ -6,9 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
    entry: [
       './src/styles/app.scss',
-      './src/styles/animate.min.css',
       './src/scripts/app.js',
-      './src/fonts/line-awesome/css/line-awesome.min.css',
    ],
    output: {
       path: path.join(__dirname, 'dist'),
