@@ -2,13 +2,13 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
    entry: [
       './src/styles/app.scss',
-      './src/styles/animate.min.css',
       './src/scripts/app.js',
-      './src/fonts/line-awesome/css/line-awesome.min.css',
    ],
    output: {
       path: path.join(__dirname, 'dist'),
@@ -23,6 +23,9 @@ module.exports = {
          template: './src/contact.pug',
          filename: 'contact.html',
       }),
+      new MiniCssExtractPlugin({
+         filename: "bundle.css"
+      })
    ],
    module: {
       rules: [
@@ -80,6 +83,15 @@ module.exports = {
                },
             ],
          },
+      ],
+   },
+   optimization: {
+      minimizer: [
+         new OptimizeCSSAssetsPlugin({
+            cssProcessorPluginOptions: {
+               preset: ['default', { discardComments: { removeAll: true } }],
+            }
+         })
       ],
    },
 };
