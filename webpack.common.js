@@ -6,26 +6,23 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-   entry: [
-      './src/styles/app.scss',
-      './src/scripts/app.js',
-   ],
+   entry: ['./src/styles/app.scss', './src/scripts/app.js'],
    output: {
       path: path.join(__dirname, 'dist'),
    },
    plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-         template: './src/index.pug',
+         template: './src/templates/index.pug',
          filename: 'index.html',
       }),
       new HtmlWebpackPlugin({
-         template: './src/contact.pug',
+         template: './src/templates/contact.pug',
          filename: 'contact.html',
       }),
       new MiniCssExtractPlugin({
-         filename: "bundle.css"
-      })
+         filename: 'bundle.css',
+      }),
    ],
    module: {
       rules: [
@@ -34,7 +31,7 @@ module.exports = {
             use: ['style-loader', 'css-loader'],
          },
          {
-            test: /\.(png|svg|jpg|gif)$/,
+            test: /\.(png|svg|jpg|jpeg|gif)$/,
             use: ['file-loader'],
          },
          {
@@ -90,8 +87,8 @@ module.exports = {
          new OptimizeCSSAssetsPlugin({
             cssProcessorPluginOptions: {
                preset: ['default', { discardComments: { removeAll: true } }],
-            }
-         })
+            },
+         }),
       ],
    },
 };
