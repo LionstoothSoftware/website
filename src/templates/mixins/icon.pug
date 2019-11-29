@@ -1,0 +1,5 @@
+// See https://fvsch.com/svg-icons/
+mixin icon(iconsSvg, iconName, className)
+    i(class=`icon ${className || ''}` aria-hidden="true")
+        svg(focusable="false" xmlns:xlink="http://www.w3.org/1999/xlink")
+            use(xlink:href=`${iconsSvg}#${iconName}`)

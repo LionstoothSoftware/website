@@ -8,7 +8,6 @@ const processElement = document.querySelector('.lts-process');
 MDCList.attachTo(processElement);
 
 registerListTitleInteractions();
-registerAnimations();
 
 /**
  * Registers an event handler on the titles of each of the steps of the startup-creation process.
@@ -63,64 +62,24 @@ function handleListTitleInteraction(ev) {
  */
 function updateListTitleExpandCollapseIcon(titleElement) {
    if (titleElement) {
-      const angleIcon = titleElement.querySelector('.lts-angle-icon');
-      if (angleIcon) {
-         if (titleElement.classList.contains('lts-collapse')) {
-            angleIcon.classList.remove('la-angle-up');
-            angleIcon.classList.add('la-angle-down');
+      const angleDownIcon = titleElement.querySelector('.lts-icon__angle-down');
+      if (angleDownIcon) {
+         const angleUpIcon = titleElement.querySelector('.lts-icon__angle-up');
+         if (angleUpIcon) {
+            if (titleElement.classList.contains('lts-collapse')) {
+               angleDownIcon.classList.remove('lts-hidden');
+               angleUpIcon.classList.add('lts-hidden');
+            } else {
+               angleUpIcon.classList.remove('lts-hidden');
+               angleDownIcon.classList.add('lts-hidden');
+            }
          } else {
-            angleIcon.classList.remove('la-angle-down');
-            angleIcon.classList.add('la-angle-up');
+            console.error('No angle-up icon element found');
          }
       } else {
-         console.error('No angle icon element found');
+         console.error('No angle-down icon element found');
       }
    } else {
       console.error('No title element found');
-   }
-}
-
-/**
- * Sets up events for animation.
- */
-function registerAnimations() {
-   if (document) {
-      const stepIcons = document.querySelectorAll(
-         '.lts-process__title .lts-icon'
-      );
-      if (stepIcons) {
-         for (const stepIcon of stepIcons) {
-            stepIcon.addEventListener('mouseover', triggerAnimation, false);
-         }
-      } else {
-         console.error('No elements were found to animate');
-      }
-   } else {
-      console.error('Document not found. Is this a browser?');
-   }
-}
-
-function triggerAnimation(ev) {
-   if (ev) {
-      animateCSS(ev.target, 'flip');
-   } else {
-      console.error('No animation event to handle');
-   }
-}
-
-function animateCSS(node, animationName, callback) {
-   if (node) {
-      // I want the animation to happen once each time, so when the animation ends remove the animated class
-      // from the element.
-      const handleAnimationEnd = function handleAnimationEnd() {
-         node.classList.remove('animated', animationName);
-         node.removeEventListener('animationend', handleAnimationEnd);
-         if (typeof callback === 'function') callback();
-      };
-
-      node.addEventListener('animationend', handleAnimationEnd);
-      node.classList.add('animated', animationName);
-   } else {
-      console.error('No element to animate');
    }
 }
