@@ -3,7 +3,7 @@
 @import "animate.min.css";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/list/mdc-list";
-@import "../fonts/line-awesome/css/line-awesome.min.css";
+@import "icon.css";
 
 // Color palette
 $base-color: #405450;
@@ -64,6 +64,14 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font;
   font-weight: bold;
+}
+
+.icon {
+  color: $base-color;
+}
+
+.lts-hidden {
+  display: none;
 }
 
 .lts-top-app-bar {
@@ -149,15 +157,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
 }
 
-.lts-icon {
-  color: $base-color;
-}
-
 .lts-process {
   color: $base-color;
 
-  .lts-icon {
+  .icon {
     @include increasingFontSize($heading-font-size, $heading-font-step);
+
+    svg {
+      top: 0;
+    }
   }
 
   &__title {
