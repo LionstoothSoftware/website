@@ -9,6 +9,7 @@ module.exports = {
    entry: ['./src/styles/app.scss', './src/scripts/app.js'],
    output: {
       path: path.join(__dirname, 'dist'),
+      filename: '[contenthash].js',
    },
    plugins: [
       new CleanWebpackPlugin(),
@@ -21,15 +22,12 @@ module.exports = {
          filename: 'contact.html',
       }),
       new MiniCssExtractPlugin({
-         filename: 'bundle.css',
+         filename: '[name].[contenthash].css',
+         chunkFilename: '[id].[contenthash].css',
       }),
    ],
    module: {
       rules: [
-         {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
-         },
          {
             test: /\.(png|svg|jpg|jpeg|gif)$/,
             use: ['file-loader'],
@@ -46,15 +44,21 @@ module.exports = {
             use: ['file-loader'],
          },
          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+         },
+         {
             test: /\.scss$/,
             use: [
                {
-                  loader: 'file-loader',
+                  loader: MiniCssExtractPlugin.loader,
                   options: {
-                     name: 'bundle.css',
+                     // only enable hot in development
+                     hmr: process.env.NODE_ENV === 'development',
+                     // if hmr does not work, this is a forceful method.
+                     reloadAll: true,
                   },
                },
-               { loader: 'extract-loader' },
                { loader: 'css-loader' },
                {
                   loader: 'postcss-loader',
