@@ -7,12 +7,14 @@
 
 // Color palette
 $base-color: #405450;
-$base-color-faint: rgba(64, 84, 80, .8);
-$base-color-very-faint: rgba(64, 84, 80, .6);
-$base-color-super-faint: rgba(64, 84, 80, .4);
+$base-color-faint: rgba($base-color, .8);
+$base-color-very-faint: rgba($base-color, .6);
+$base-color-super-faint: rgba($base-color, .4);
+
 $light-color: #f1f1f2;
-$light-color-faint: rgba(64, 84, 80, .8);
-$light-color-super-faint: rgba(241, 241, 242, .2);
+$light-color-faint: rgba($light-color, .8);
+$light-color-very-faint: rgba($light-color, .6);
+$light-color-super-faint: rgba($light-color, .4);
 
 // Minimum sizes for various breakpoints (follows Bootstrap 4 sizes)
 $sm-min: 576px;
@@ -53,6 +55,7 @@ body, p {
   font-weight: normal;
   color: $base-color;
   font-size: $copy-font-size;
+  background-color: $light-color;
 }
 
 p {
@@ -125,6 +128,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-basis: 3%;
     align-items: flex-end;
+    background-color: rgba($light-color, 0);
 
     a {
       text-decoration: none;
