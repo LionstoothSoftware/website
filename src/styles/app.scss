@@ -200,3 +200,20 @@ h1, h2, h3, h4, h5, h6 {
 .lts-list-divider {
   border-bottom-color: $base-color-super-faint;
 }
+
+.lts-footer {
+  display: flex;
+  justify-content: center;
+  background-color: $base-color;
+  padding: 3rem;
+
+  .icon {
+    color: $light-color-super-faint;
+    font-size: 2rem;
+    padding: 0 1rem;
+
+    &:hover {
+      color: $light-color;
+    }
+  }
+}
