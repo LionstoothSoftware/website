@@ -204,16 +204,15 @@ h1, h2, h3, h4, h5, h6 {
 .lts-footer {
   display: flex;
   justify-content: center;
-  background-color: $base-color;
   padding: 3rem;
 
   .icon {
-    color: $light-color-super-faint;
+    color: $base-color-very-faint;
     font-size: 2rem;
     padding: 0 1rem;
 
     &:hover {
-      color: $light-color;
+      color: $base-color;
     }
   }
 }
