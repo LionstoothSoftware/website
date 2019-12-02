@@ -33,10 +33,12 @@ module.exports = {
             use: ['file-loader'],
          },
          {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            query: {
-               presets: ['@babel/preset-env'],
+            test: /\.m?js$/,
+            use: {
+               loader: 'babel-loader',
+               options: {
+                  presets: ['@babel/preset-env'],
+               },
             },
          },
          {
@@ -94,5 +96,8 @@ module.exports = {
             },
          }),
       ],
+   },
+   devServer: {
+      contentBase: path.join(__dirname, 'public'),
    },
 };
